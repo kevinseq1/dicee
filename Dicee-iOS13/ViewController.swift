@@ -14,19 +14,26 @@ class ViewController: UIViewController {
     @IBOutlet weak var diceImageView1: UIImageView!
     @IBOutlet weak var diceImageView2: UIImageView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-        // Change the UI element to the specified string
-        diceImageView1.image = UIImage(imageLiteralResourceName: "DiceSix")
-        diceImageView2.image = UIImage(imageLiteralResourceName: "DiceThree")
-    }
+    
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//
+//        // Do any additional setup after loading the view.
+//
+//    }
 
     // Change image when roll button is pressed
     @IBAction func rollButtonPressed(_ sender: UIButton) {
-        diceImageView1.image = UIImage(imageLiteralResourceName: "DiceFour")
-        diceImageView2.image = UIImage(imageLiteralResourceName: "DiceFour")
+        
+       
+        // Array containing all sides of a dice image
+        let diceArray = [UIImage(imageLiteralResourceName: "DiceOne"), UIImage(imageLiteralResourceName: "DiceTwo"), UIImage(imageLiteralResourceName: "DiceThree"), UIImage(imageLiteralResourceName: "DiceFour"), UIImage(imageLiteralResourceName: "DiceFive"), UIImage(imageLiteralResourceName: "DiceSix")
+        ]
+        
+        // Set the image of the dice to a random index of the diceArray
+        diceImageView1.image = diceArray[Int.random(in: 0...5)]
+        diceImageView2.image = diceArray[Int.random(in: 0...5)]
+        
     }
     
 }
